@@ -158,7 +158,7 @@
       <button id="export" style="float: right;">Export Image</button>
       <br>
       <label for="scale">Scale:</label>
-      <input type="range" id="scale" min="0.1" max="2" step="0.1" value="1">
+      <input type="range" id="scale" min="0.1" max="0.5" step="0.01" value="0.015">
     </div>
     <canvas id="canvas" width="600" height="493"></canvas>
     <br>
@@ -188,25 +188,33 @@
     let userImage = null;
     let userImageWidth = 0;
     let userImageHeight = 0;
+
+    let foregroundImage = new Image();
+    let foregroundScale = 0.1;
+
     let dragging = false;
     let dragStartX, dragStartY;
     let imageX = 400, imageY = 300;
     const backgroundImage = new Image();
 
-    backgroundImage.src = 'shoggoth.png';
-    backgroundImage.onload = () => {
-      drawCanvas();
-    };
+    foregroundImage.src = 'smile.png';
+    foregroundImage.onload = drawCanvas;
 
     function drawCanvas() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+
       if (userImage) {
-        const scale = parseFloat(scaleInput.value);
-        const scaledWidth = userImageWidth * scale;
-        const scaledHeight = userImageHeight * scale;
-        ctx.drawImage(userImage, imageX - scaledWidth / 2, imageY - scaledHeight / 2, scaledWidth, scaledHeight);
+        ctx.drawImage(userImage, 0, 0, canvas.width, canvas.height);
       }
+
+      const scaledWidth = foregroundImage.width * foregroundScale;
+      const scaledHeight = foregroundImage.height * foregroundScale;
+      ctx.drawImage(foregroundImage,
+        imageX - scaledWidth / 2,
+        imageY - scaledHeight / 2,
+        scaledWidth,
+        scaledHeight
+      );
     }
 
     upload.addEventListener('change', (event) => {
@@ -216,39 +224,34 @@
         reader.onload = (e) => {
           userImage = new Image();
           userImage.src = e.target.result;
-          userImage.onload = () => {
-            userImageWidth = userImage.width;
-            userImageHeight = userImage.height;
-            drawCanvas();
-          };
+          userImage.onload = drawCanvas;
         };
         reader.readAsDataURL(file);
       }
     });
 
-    scaleInput.addEventListener('input', drawCanvas);
+    scaleInput.addEventListener('input', (event) => {
+      foregroundScale = parseFloat(event.target.value);
+      drawCanvas();
+    });
 
     canvas.addEventListener('mousedown', (event) => {
-      if (userImage) {
-        const scale = parseFloat(scaleInput.value);
-        const scaledWidth = userImageWidth * scale;
-        const scaledHeight = userImageHeight * scale;
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = event.clientX - rect.left;
+      const mouseY = event.clientY - rect.top;
 
-        // Check if the click is wthin the image bounds
-        const rect = canvas.getBoundingClientRect();
-        const mouseX = event.clientX - rect.left;
-        const mouseY = event.clientY - rect.top;
+      const scaledWidth = foregroundImage.width * foregroundScale;
+      const scaledHeight = foregroundImage.height * foregroundScale;
 
-        if (
-          mouseX > imageX - scaledWidth / 2 &&
-          mouseX < imageX + scaledWidth / 2 &&
-          mouseY > imageY - scaledHeight / 2 &&
-          mouseY < imageY + scaledHeight / 2
-        ) {
-          dragging = true;
-          dragStartX = mouseX - imageX;
-          dragStartY = mouseY - imageY;
-        }
+      if (
+        mouseX > imageX - scaledWidth / 2 &&
+        mouseX < imageX + scaledWidth / 2 &&
+        mouseY > imageY - scaledHeight / 2 &&
+        mouseY < imageY + scaledHeight / 2
+      ) {
+        dragging = true;
+        dragStartX = mouseX - imageX;
+        dragStartY = mouseY - imageY;
       }
     });
 
@@ -275,9 +278,9 @@
     exportBtn.addEventListener('click', () => {
       const link = document.createElement('a');
       link.download = 'result.png';
-      link.href = canvas.toDataURL();
+      link.href = canvas.toDataURL('image/png');
       link.click();
-    });
+  });
   </script>
 </body>
 
