@@ -194,7 +194,7 @@
 
     let dragging = false;
     let dragStartX, dragStartY;
-    let imageX = 300, imageY = 300;
+    let imageX = 50, imageY = 50;
     const backgroundImage = new Image();
 
     foregroundImage.src = 'smile.png';
@@ -225,15 +225,10 @@
           userImage = new Image();
           userImage.src = e.target.result;
           userImage.onload = () => {
-            canvas.width = userImage.naturalWidth;
-            canvas.height = userImage.naturalHeight;
-
             const aspectRatio = userImage.naturalHeight / userImage.naturalWidth;
-            canvas.style.width = '600px';
-            canvas.style.height = `${600 * aspectRatio}px`;
+            canvas.width = '600';
+            canvas.height = `${600 * aspectRatio}`;
 
-            imageX = userImage.naturalWidth / 2;
-            imageY = userImage.naturalHeight / 2;
             drawCanvas();
           };
         };
