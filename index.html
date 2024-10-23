@@ -160,7 +160,7 @@
       <label for="scale">Scale:</label>
       <input type="range" id="scale" min="0.1" max="0.5" step="0.01" value="0.015">
     </div>
-    <canvas id="canvas" width="600" height="493"></canvas>
+    <canvas id="canvas" width="600" height="600"></canvas>
     <br>
     <br>
     <br>
@@ -224,7 +224,11 @@
         reader.onload = (e) => {
           userImage = new Image();
           userImage.src = e.target.result;
-          userImage.onload = drawCanvas;
+          userImage.onload = () => {
+            canvas.width = 600;
+            canvas.height = Math.round((600 / userImage.naturalWidth) * userImage.naturalHeight);
+            drawCanvas();
+          };
         };
         reader.readAsDataURL(file);
       }
