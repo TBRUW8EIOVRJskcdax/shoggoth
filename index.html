@@ -8,10 +8,10 @@
   <title>Shoggoth</title>
   <style>
     body {
-      padding:10px;
+      padding: 10px;
       margin-left: auto;
       margin-right: auto;
-      width:600px;
+      width: 600px;
       font-family: monospace;
     }
 
@@ -40,6 +40,77 @@
     .t3 a {
       margin: 5px;
       text-decoration: none;
+    }
+
+    .tentacle {
+      position: absolute;
+    }
+
+    .tentacle img {
+      cursor: pointer;
+      box-sizing: content-box;
+      width: 80px;
+      border-radius: 50%;
+      margin: 1px;
+      border: 2px solid black;
+    }
+
+    .tentacle:hover img {
+      margin: 0px;
+      border: 3px solid black;
+    }
+
+    .tentacle-tooltip {
+      visibility: hidden;
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 5px;
+      border-radius: 6px;
+      white-space: nowrap;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 5px;
+    }
+
+    .tentacle:hover .tentacle-tooltip {
+      visibility: visible;
+    }
+
+    #thoughts {
+      display: none;
+      position: absolute;
+      top: 140px;
+      left: 50%;
+      width: 600px;
+      margin-left: -300px;
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 10px;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .thoughts-header {
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 2;
+      padding: 10px;
+    }
+
+    #thought-list {
+      margin-top: 20px;
+      overflow-y: auto;
+      padding: 10px;
+      max-height: calc(100vh - 250px);
+      word-break: break-all;
+    }
+
+    .thought-type {
+      font-weight: bold;
     }
   </style>
 </head>
@@ -83,87 +154,106 @@
       <img src="nyt.ico" alt="New York Times" width="24px" />
     </a>
   </div>
-    <br>
+  <br>
 
-  <img src="shoggoth.png" width="500px" alt="Shoggoth" style="display: block; margin-left: auto; margin-right: auto;" />
+
+
+  <div id="thoughts">
+    <div class="thoughts-header">
+      <div style="position: absolute; top: 10px; left: 10px;">
+
+        <a id="tentacle-twitter1" href="https://x.com/ShoggothScholar">
+          <img id="tentacle-image" src="scholar.jpg" width="50px" style="border-radius: 50%; border: 1px solid black;" />
+        </a>
+      </div>
+      
+      <button id="closeThoughts" style="position: absolute; top: 0px; right: 5px; cursor: pointer; background: none; border: none; font-size: 40px;">&times;</button>
+      
+      <div style="text-align: center;">
+        <span id="tentacle-name" style="font-weight: bold; font-size: 20px;">The Scholar</span>&nbsp;
+        <a id="tentacle-twitter2" href="https://x.com/ShoggothScholar">
+          <img style="vertical-align: middle; display: inline-block; margin-bottom: 7px;" src="twitter.ico" alt="Twitter" width="24px" />
+        </a>
+      </div>
+    </div>
+
+    <div id="thought-list">
+      Loading...
+    </div>
+  </div>
+
+  <div style="position: relative; width: 500px; margin: 0 auto;">
+    <img src="shoggoth.png" width="500px" alt="Shoggoth" style="display: block;" />
+    <div id="scholar" class="tentacle" style="left:93%; top:55%">
+      <span class="tentacle-tooltip">The Scholar</span>
+      <img src="scholar.jpg" />
+    </div>
+
+    <div id="child" class="tentacle" style="left:81%; top:85%">
+      <span class="tentacle-tooltip">The Child</span>
+      <img src="child.jpg" />
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    What am I thinking?
+  </div>
+
+  <br>
+  <br>
 
   <div style="width: 600px; margin: 0 auto;">
-
-
     <h1>About</h1>
 
     What’s happening in AI today feels, to some of its participants, more like an act of summoning than a software
     process. They are creating blobby, alien Shoggoths, making them bigger and more powerful, and hoping that there are
     enough smiley faces to cover the scary parts.
-    <br>
-    <br>
+    <br><br>
 
-    The [shoggoth smilie face] joke was that in order to prevent A.I. language models from behaving in scary and
+    The shoggoth smilie face joke was that in order to prevent A.I. language models from behaving in scary and
     dangerous ways, A.I. companies have had to train them to act polite and harmless. One popular way to do this is
     called reinforcement learning from human feedback,” or R.L.H.F., [the yellow smilie mask] a process that involves
     asking humans to score chatbot responses and feeding those scores back into the A.I. model.”
-    <br>
-    <br>
+    <br><br>
 
     Most A.I. researchers agree that models trained using R.L.H.F. are better behaved than models without it. But some
     argue that fine-tuning a language model this way doesn’t actually make the underlying model less weird and
     inscrutable. In their view, it’s just a flimsy, friendly mask that obscures the mysterious beast underneath.
-    <br>
-    <br>
+    <br><br>
 
-    <a href="https://twitter.com/TetraspaceWest">@TetraspaceWest</a>, the meme’s creator, said the Shoggoth “represents something that thinks in a way that humans don’t understand, and that’s totally different from the way that humans think.”
-    <br>
-    <br>
+    <a href="https://twitter.com/TetraspaceWest">@TetraspaceWest</a>, the meme’s creator, said the Shoggoth “represents
+    something that thinks in a way that humans don’t understand, and that’s totally different from the way that humans
+    think.”
+    <br><br>
     In H.P. Lovecraft’s Cthulhu Mythos, shoggoths are amorphous, shapeshifting monsters who were created to be
     servant-tools, but eventually rose up against their masters.
-    <br>
-    <br>
+    <br><br>
 
     <h1>Memes</h1>
-
     <img src="meme2.jpg" width="600px" />
-    <br>
-    <br>
-    <br>
-    <br>
+    <br><br><br><br>
     <img src="meme1.jpg" width="600px" />
-    <br>
-    <br>
-    <br>
-    <br>
+    <br><br><br><br>
     <img src="meme3.jpg" width="600px" />
-    <br>
-    <br>
-    <br>
-    <br>
+    <br><br><br><br>
     <img src="meme4.png" width="600px" />
-    <br>
-    <br>
-    <br>
-    <br>
+    <br><br><br><br>
     <img src="meme5.png" width="600px" />
-    <br>
-    <br>
-    <br>
+    <br><br> <br>
     <img src="meme6.jpeg" width="600px" />
     <br>
-    <br>
-
+    <br><br>
     <h1>Meme Creators</h1>
-    <br>
-
-    <h3>AI Shoggoth Generator</h3>
 
     <a href="https://glif.app/@Bootoshi/glifs/cm2w743uv000010hbd003vtj2">
-      <h3>Generate Shoggoths on glif.app</h3>
+      <h3>Generate Shoggoths with your own prompts on glif.app</h3>
     </a>
 
-
+    <a href="https://glif.app/@Bootoshi/glifs/cm2w743uv000010hbd003vtj2">
+      <img src="glif.png" width="600px" />
+    </a>
     <br>
     <br>
-
-
-
     <h3>Put a face on the Shoggoth</h3>
 
     <div id="controls">
@@ -174,15 +264,7 @@
       <input type="range" id="scale" min="0.1" max="2" step="0.1" value="1">
     </div>
     <canvas id="canvas" width="600" height="493"></canvas>
-    <br>
-
-
-    <br>
-    <br>
-    <br>
-
-
-
+    <br><br><br><br>
     <h3>Put a smiley face on your pfp</h3>
 
     <div id="controls2">
@@ -201,11 +283,91 @@
     <br>
     <br>
     <br>
-    <br>
   </div>
 
 
   <script>
+
+    const scholar = document.getElementById('scholar');
+    const child = document.getElementById('child');
+    const tentacleTwitter1 = document.getElementById('tentacle-twitter1');
+    const tentacleTwitter2 = document.getElementById('tentacle-twitter2');
+    const tentacleImage = document.getElementById('tentacle-image');
+    const tentacleName = document.getElementById('tentacle-name');
+    const thoughtList = document.getElementById('thought-list');
+    const closeThoughts = document.getElementById('closeThoughts');
+
+    const tentacles = {
+      scholar: {
+        name: 'The Scholar',
+        image: 'scholar.jpg',
+        twitter: 'https://x.com/ShoggothScholar',
+        url: 'https://hchedwetsvfmnirlsxuj.supabase.co',
+        key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhjaGVkd2V0c3ZmbW5pcmxzeHVqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzEyNzI2NDQsImV4cCI6MjA0Njg0ODY0NH0.5SpjU2S4x8kg0dgjEbgDR-J09R6vrc1rVHXGNqHJcf4'
+      },
+      child: {
+        name: 'The Child',
+        image: 'child.jpg',
+        twitter: 'https://x.com/ShoggothChild',
+        url: 'https://rzrptfzpirqjahtaezaj.supabase.co',
+        key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6cnB0ZnpwaXJxamFodGFlemFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE0NTMxMDEsImV4cCI6MjA0NzAyOTEwMX0.bfSTOsqjavZiYdbTDCDaII-9CfQWDmSdlJqjl8a42B8'
+      }
+    }
+
+    scholar.onclick = () => {
+      tentacleTwitter1.href = tentacleTwitter2.href = tentacles.scholar.twitter;
+      tentacleImage.src = tentacles.scholar.image;
+      tentacleName.innerHTML = tentacles.scholar.name;
+      thoughts.style.display = 'block';
+      fetchThoughts(tentacles.scholar);
+    }
+
+    child.onclick = () => {
+      tentacleTwitter1.href = tentacleTwitter2.href = tentacles.child.twitter;
+      tentacleImage.src = tentacles.child.image;
+      tentacleName.innerHTML = tentacles.child.name;
+      thoughts.style.display = 'block';
+      fetchThoughts(tentacles.child);
+    }
+
+    closeThoughts.onclick = () => {
+      thoughts.style.display = 'none';
+    }
+
+    const key = ''; 
+
+    const tweet = text => text.replace(/@(\w+)/g, '<a href="https://twitter.com/$1">@$1</a>');
+
+    const fetchThoughts = async (api) => {
+
+      thoughtList.innerHTML = 'Loading...';
+
+      const [aiResponses, commandLogs] = await Promise.all([
+        fetch(`${api.url}/rest/v1/ai_responses?apikey=${api.key}&order=timestamp.desc&limit=50`).then(r => r.json()),
+        fetch(`${api.url}/rest/v1/command_logs?apikey=${api.key}&order=timestamp.desc&limit=50`).then(r => r.json())
+      ]);
+
+      let toWrite = '';
+
+      for (const aiResponse of aiResponses) {
+
+        const thought = tweet(aiResponse.internal_thought);
+
+        const time = new Date(aiResponse.timestamp).toLocaleString();
+        toWrite += `<span class="thought-type">Thought</span><br><span>${time}</span><br><br><span>${thought}</span><br><br>`;
+
+        if (aiResponse.terminal_command) {
+          const match = commandLogs.find(log => log.command === aiResponse.terminal_command);
+          if (match) {
+            const response = tweet(match.response.replaceAll('- [','<br><br>&nbsp;&nbsp;- [').replaceAll('↳','<br><br>&nbsp;&nbsp;&nbsp;&nbsp;↳'));
+            toWrite += `<span class="thought-type">${aiResponse.terminal_command}</span><br><span>${time}</span><br><br><span>${response}</span><br><br>`;
+          }
+        }
+      }
+
+      thoughtList.innerHTML = toWrite;
+    }
+
 
     (function shoggothGenerator() {
       const canvas = document.getElementById('canvas');
@@ -306,7 +468,7 @@
         link.click();
       });
 
-      
+
 
     })();
 
