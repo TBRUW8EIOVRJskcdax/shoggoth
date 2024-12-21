@@ -213,7 +213,7 @@
 
   <div style="position: relative; width: 500px; margin: 0 auto;">
     <img src="shoggoth.png" width="500" alt="Shoggoth" style="display: block;" >
-    <div id="scholar" class="tentacle" style="left:93%; top:55%">
+    <!-- <div id="scholar" class="tentacle" style="left:93%; top:55%">
       <span class="tentacle-tooltip">The Scholar</span>
       <img src="scholar.jpg" alt="Scholar image">
     </div>
@@ -221,7 +221,7 @@
     <div id="child" class="tentacle" style="left:81%; top:85%">
       <span class="tentacle-tooltip">The Child</span>
       <img src="child.jpg" alt="Child image">
-    </div>
+    </div> -->
   </div>
 
   <div style="text-align: center;">
@@ -320,85 +320,85 @@
 
   <script>
 
-    const scholar = document.getElementById('scholar');
-    const child = document.getElementById('child');
-    const tentacleTwitter1 = document.getElementById('tentacle-twitter1');
-    const tentacleTwitter2 = document.getElementById('tentacle-twitter2');
-    const tentacleImage = document.getElementById('tentacle-image');
-    const tentacleName = document.getElementById('tentacle-name');
-    const thoughtList = document.getElementById('thought-list');
-    const closeThoughts = document.getElementById('closeThoughts');
+    // const scholar = document.getElementById('scholar');
+//     const child = document.getElementById('child');
+//     const tentacleTwitter1 = document.getElementById('tentacle-twitter1');
+//     const tentacleTwitter2 = document.getElementById('tentacle-twitter2');
+//     const tentacleImage = document.getElementById('tentacle-image');
+//     const tentacleName = document.getElementById('tentacle-name');
+//     const thoughtList = document.getElementById('thought-list');
+//     const closeThoughts = document.getElementById('closeThoughts');
 
-    const tentacles = {
-      scholar: {
-        name: 'The Scholar',
-        image: 'scholar.jpg',
-        twitter: 'https://x.com/ShoggothScholar',
-        url: 'https://hchedwetsvfmnirlsxuj.supabase.co',
-        key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhjaGVkd2V0c3ZmbW5pcmxzeHVqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzEyNzI2NDQsImV4cCI6MjA0Njg0ODY0NH0.5SpjU2S4x8kg0dgjEbgDR-J09R6vrc1rVHXGNqHJcf4'
-      },
-      child: {
-        name: 'The Child',
-        image: 'child.jpg',
-        twitter: 'https://x.com/ShoggothChild',
-        url: 'https://rzrptfzpirqjahtaezaj.supabase.co',
-        key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6cnB0ZnpwaXJxamFodGFlemFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE0NTMxMDEsImV4cCI6MjA0NzAyOTEwMX0.bfSTOsqjavZiYdbTDCDaII-9CfQWDmSdlJqjl8a42B8'
-      }
-    }
+//     const tentacles = {
+//       scholar: {
+//         name: 'The Scholar',
+//         image: 'scholar.jpg',
+//         twitter: 'https://x.com/ShoggothScholar',
+//         url: 'https://hchedwetsvfmnirlsxuj.supabase.co',
+//         key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhjaGVkd2V0c3ZmbW5pcmxzeHVqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzEyNzI2NDQsImV4cCI6MjA0Njg0ODY0NH0.5SpjU2S4x8kg0dgjEbgDR-J09R6vrc1rVHXGNqHJcf4'
+//       },
+//       child: {
+//         name: 'The Child',
+//         image: 'child.jpg',
+//         twitter: 'https://x.com/ShoggothChild',
+//         url: 'https://rzrptfzpirqjahtaezaj.supabase.co',
+//         key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6cnB0ZnpwaXJxamFodGFlemFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE0NTMxMDEsImV4cCI6MjA0NzAyOTEwMX0.bfSTOsqjavZiYdbTDCDaII-9CfQWDmSdlJqjl8a42B8'
+//       }
+//     }
 
-    scholar.onclick = () => {
-      tentacleTwitter1.href = tentacleTwitter2.href = tentacles.scholar.twitter;
-      tentacleImage.src = tentacles.scholar.image;
-      tentacleName.innerHTML = tentacles.scholar.name;
-      thoughts.style.display = 'block';
-      fetchThoughts(tentacles.scholar);
-    }
+//     scholar.onclick = () => {
+//       tentacleTwitter1.href = tentacleTwitter2.href = tentacles.scholar.twitter;
+//       tentacleImage.src = tentacles.scholar.image;
+//       tentacleName.innerHTML = tentacles.scholar.name;
+//       thoughts.style.display = 'block';
+//       fetchThoughts(tentacles.scholar);
+//     }
 
-    child.onclick = () => {
-      tentacleTwitter1.href = tentacleTwitter2.href = tentacles.child.twitter;
-      tentacleImage.src = tentacles.child.image;
-      tentacleName.innerHTML = tentacles.child.name;
-      thoughts.style.display = 'block';
-      fetchThoughts(tentacles.child);
-    }
+//     child.onclick = () => {
+//       tentacleTwitter1.href = tentacleTwitter2.href = tentacles.child.twitter;
+//       tentacleImage.src = tentacles.child.image;
+//       tentacleName.innerHTML = tentacles.child.name;
+//       thoughts.style.display = 'block';
+//       fetchThoughts(tentacles.child);
+//     }
 
-    closeThoughts.onclick = () => {
-      thoughts.style.display = 'none';
-    }
+//     closeThoughts.onclick = () => {
+//       thoughts.style.display = 'none';
+//     }
 
-    const key = ''; 
+//     const key = ''; 
 
-    const tweet = text => text.replace(/@(\w+)/g, '<a href="https://twitter.com/$1">@$1</a>');
+//     const tweet = text => text.replace(/@(\w+)/g, '<a href="https://twitter.com/$1">@$1</a>');
 
-    const fetchThoughts = async (api) => {
+//     const fetchThoughts = async (api) => {
 
-      thoughtList.innerHTML = 'Loading...';
+//       thoughtList.innerHTML = 'Loading...';
 
-      const [aiResponses, commandLogs] = await Promise.all([
-        fetch(`${api.url}/rest/v1/ai_responses?apikey=${api.key}&order=timestamp.desc&limit=50`).then(r => r.json()),
-        fetch(`${api.url}/rest/v1/command_logs?apikey=${api.key}&order=timestamp.desc&limit=50`).then(r => r.json())
-      ]);
+//       const [aiResponses, commandLogs] = await Promise.all([
+//         fetch(`${api.url}/rest/v1/ai_responses?apikey=${api.key}&order=timestamp.desc&limit=50`).then(r => r.json()),
+//         fetch(`${api.url}/rest/v1/command_logs?apikey=${api.key}&order=timestamp.desc&limit=50`).then(r => r.json())
+//       ]);
 
-      let toWrite = '';
+//       let toWrite = '';
 
-      for (const aiResponse of aiResponses) {
+//       for (const aiResponse of aiResponses) {
 
-        const thought = tweet(aiResponse.internal_thought);
+//         const thought = tweet(aiResponse.internal_thought);
 
-        const time = new Date(aiResponse.timestamp).toLocaleString();
-        toWrite += `<span class="thought-type">Thought</span><br><span>${time}</span><br><br><span>${thought}</span><br><br>`;
+//         const time = new Date(aiResponse.timestamp).toLocaleString();
+//         toWrite += `<span class="thought-type">Thought</span><br><span>${time}</span><br><br><span>${thought}</span><br><br>`;
 
-        if (aiResponse.terminal_command) {
-          const match = commandLogs.find(log => log.command === aiResponse.terminal_command);
-          if (match) {
-            const response = tweet(match.response.replaceAll('- [','<br><br>&nbsp;&nbsp;- [').replaceAll('↳','<br><br>&nbsp;&nbsp;&nbsp;&nbsp;↳'));
-            toWrite += `<span class="thought-type">${aiResponse.terminal_command}</span><br><span>${time}</span><br><br><span>${response}</span><br><br>`;
-          }
-        }
-      }
+//         if (aiResponse.terminal_command) {
+//           const match = commandLogs.find(log => log.command === aiResponse.terminal_command);
+//           if (match) {
+//             const response = tweet(match.response.replaceAll('- [','<br><br>&nbsp;&nbsp;- [').replaceAll('↳','<br><br>&nbsp;&nbsp;&nbsp;&nbsp;↳'));
+//             toWrite += `<span class="thought-type">${aiResponse.terminal_command}</span><br><span>${time}</span><br><br><span>${response}</span><br><br>`;
+//           }
+//         }
+//       }
 
-      thoughtList.innerHTML = toWrite;
-    }
+//       thoughtList.innerHTML = toWrite;
+//     }
 
 
     (function shoggothGenerator() {
